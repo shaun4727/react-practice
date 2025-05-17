@@ -1,12 +1,54 @@
-# React + Vite
+```json
+{
+    "$schema": "https://json.schemastore.org/prettierrc",
+    "semi": true,
+    "tabWidth": 4,
+    "singleQuote": false,
+    "printWidth": 100,
+    "trailingComma": "none",
+    "bracketSameLine": true,
+    "endOfLine": "lf",
+    "vueIndentScriptAndStyle": true
+}
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+```
 
-Currently, two official plugins are available:
+endOfLine: 'lf' will add a new line after end of a code line.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
+`eslint.config.js`
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```json
+rules:{
+    "react/destructuring-assignment": ["error", "always", { ignoreClassFields: true }]
+}
+```
+this rule will force destructuring state in render of a component.
+
+
+# vscode settings for eslint and prettier
+```json
+{
+    "editor.formatOnSave": false,
+    "editor.codeActionsOnSave": {
+        "source.fixAll": "always",
+        "source.fixAll.eslint": "always"
+    },
+    "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact", "vue"]
+}
+
+```
+
+- use of `this` in a class component
+    ./src/components/Clock.jsx
+
+```jsx
+// convert it to arrow function to use this in this.setSate()
+handleClick() {
+    console.log("the button click");
+
+    this.setState({
+        locale: "en-US"
+    });
+}
+```

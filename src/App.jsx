@@ -1,11 +1,12 @@
-import Clock from './components/Clock';
+import Clock from "./components/Clock";
 
 function App() {
-	return (
-		<>
-			<Clock />
-		</>
-	);
+    console.log("App component rendered");
+    return (
+        <>
+            <Clock />
+        </>
+    );
 }
 
 export default App;
