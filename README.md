@@ -52,3 +52,5 @@ handleClick() {
     });
 }
 ```
+
+# React conditional rendering, list and keys
