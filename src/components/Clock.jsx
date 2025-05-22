@@ -35,6 +35,7 @@ class Clock extends React.Component {
     //     });
     // }
     handleClick = (locale) => {
+        console.log("locale", locale);
         this.setState({
             locale: locale
         });
@@ -70,6 +71,14 @@ class Clock extends React.Component {
          * 1. define function as an arrow function
          * 2. send function and parameters separately using props
          */
+
+        // conditional rendering
+        let button;
+        if (locale === "bn-BD") {
+            button = <Button change={() => this.handleClick("en-US")} />;
+        } else {
+            button = <Button change={() => this.handleClick("bn-BD")}></Button>;
+        }
         return (
             <>
                 <h1>
@@ -84,8 +93,8 @@ class Clock extends React.Component {
                 {/* <Button change={this.handleClick.bind(this, "en-US")}>Click Here</Button> */}
 
                 {/* avoiding re-render */}
-                <Button change={this.handleClick} locale="en-US"></Button>
 
+                {button}
                 {/* <button onClick={this.handleClick.bind(this, "en-US")}>Click</button> */}
                 {/* <button onClick={() => this.handleClick.bind("en-US")}>Click</button> */}
             </>
