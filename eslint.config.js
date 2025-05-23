@@ -78,7 +78,14 @@ export default [
                     "newlines-between": "always"
                 }
             ],
-            "react/destructuring-assignment": ["error", "always", { ignoreClassFields: true }]
+            "react/destructuring-assignment": ["error", "always", { ignoreClassFields: true }],
+            "padding-line-between-statements": [
+                "error",
+                { blankLine: "always", prev: "*", next: "return" },
+                { blankLine: "always", prev: "const", next: "block-like" },
+                { blankLine: "always", prev: "block-like", next: "*" }
+                // add more rules as needed
+            ]
         },
         settings: {
             react: {
