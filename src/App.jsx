@@ -1,13 +1,19 @@
-import Clock from "./components/Clock";
-import Form from "./components/Form.jsx";
+import Bracket from "./components/composition/Bracket";
+import Emoji from "./components/composition/Emoji";
+import Text from "./components/composition/Text";
 
 function App() {
-    console.log("App component rendered");
-
     return (
         <>
-            <Clock />
-            <Form />
+            {" "}
+            <Text />
+            <Emoji>
+                {({ addEmoji }) => (
+                    <Bracket>
+                        {({ addBracket }) => <Text addEmoji={addEmoji} addBracket={addBracket} />}
+                    </Bracket>
+                )}
+            </Emoji>
         </>
     );
 }
